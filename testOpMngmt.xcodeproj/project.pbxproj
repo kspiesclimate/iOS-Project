@@ -13,6 +13,7 @@
 		002A9B931BC188AD000E1BC8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 002A9B921BC188AD000E1BC8 /* Images.xcassets */; };
 		002A9B961BC188AD000E1BC8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 002A9B941BC188AD000E1BC8 /* LaunchScreen.xib */; };
 		002A9BA21BC188AE000E1BC8 /* testOpMngmtTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002A9BA11BC188AE000E1BC8 /* testOpMngmtTests.swift */; };
+		002A9BAC1BC19B62000E1BC8 /* overviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002A9BAB1BC19B62000E1BC8 /* overviewViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		002A9B9B1BC188AE000E1BC8 /* testOpMngmtTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = testOpMngmtTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		002A9BA01BC188AE000E1BC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		002A9BA11BC188AE000E1BC8 /* testOpMngmtTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testOpMngmtTests.swift; sourceTree = "<group>"; };
+		002A9BAB1BC19B62000E1BC8 /* overviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = overviewViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				002A9B8B1BC188AD000E1BC8 /* AppDelegate.swift */,
 				002A9B8D1BC188AD000E1BC8 /* ViewController.swift */,
 				002A9B8F1BC188AD000E1BC8 /* Main.storyboard */,
+				002A9BAB1BC19B62000E1BC8 /* overviewViewController.swift */,
 				002A9B921BC188AD000E1BC8 /* Images.xcassets */,
 				002A9B941BC188AD000E1BC8 /* LaunchScreen.xib */,
 				002A9B891BC188AD000E1BC8 /* Supporting Files */,
@@ -214,6 +217,7 @@
 			files = (
 				002A9B8E1BC188AD000E1BC8 /* ViewController.swift in Sources */,
 				002A9B8C1BC188AD000E1BC8 /* AppDelegate.swift in Sources */,
+				002A9BAC1BC19B62000E1BC8 /* overviewViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +347,7 @@
 				INFOPLIST_FILE = testOpMngmt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -353,6 +358,7 @@
 				INFOPLIST_FILE = testOpMngmt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
@@ -409,6 +415,7 @@
 				002A9BA71BC188AE000E1BC8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		002A9BA81BC188AE000E1BC8 /* Build configuration list for PBXNativeTarget "testOpMngmtTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +424,7 @@
 				002A9BAA1BC188AE000E1BC8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
