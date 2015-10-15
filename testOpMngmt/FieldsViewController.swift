@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class FieldsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FieldsViewController: UIViewController, MKMapViewDelegate, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var mapView: MKMapView!
     
@@ -17,24 +17,23 @@ class FieldsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
    
     var fieldListData = [
-        ["thumbnail":"thumb1", "name":"Homestead 45", "acres":"45"],
-        ["thumbnail":"thumb1", "name":"Back 40", "acres":"210"],
-        ["thumbnail":"thumb1", "name":"East of Highway", "acres":"120"]
+        ["thumbnail":"thumb1", "name":"Homestead 45", "acres":"45", "lat":39.432411, "long":-84.817024],
+        ["thumbnail":"thumb1", "name":"Back 40", "acres":"210", "lat":41.238100, "long":-85.853047],
+        ["thumbnail":"thumb1", "name":"East of Highway", "acres":"120", "lat":41.260878, "long":-85.975274]
     ]
-    
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         
         tableView.delegate = self
         
         tableView.dataSource = self
         
         
-        // set initial location in Honolulu
-        let initialLocation = CLLocation(latitude: 21.282778, longitude: -157.829444)
+        // set initial location in Inidana
+        let initialLocation = CLLocation(latitude: 40.267194, longitude: -86.134902)
         
         centerMapOnLocation(initialLocation)
         
@@ -43,10 +42,16 @@ class FieldsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+       
         var fieldListDictionary = fieldListData[indexPath.row]
-        let name = fieldListDictionary["name"]!
-        let acres = fieldListDictionary["acres"]!
-        print(name)
+        let lat = fieldListDictionary["lat"] as! Double
+        let long = fieldListDictionary["long"] as! Double
+        
+        let tappedLocation = CLLocation(latitude: lat, longitude: long)
+        
+        centerMapOnLocation(tappedLocation)
+      
+        print(lat)
         
         
     }
@@ -59,18 +64,20 @@ class FieldsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let cell = tableView.dequeueReusableCellWithIdentifier("fieldCell")  as! FieldCell
         
         var fieldListDictionary = fieldListData[indexPath.row]
-        let name = fieldListDictionary["name"]!
-        let acres = fieldListDictionary["acres"]!
-        let thumbnail = fieldListDictionary["thumbnail"]!
+        let name = fieldListDictionary["name"] as! String
+        let acres = fieldListDictionary["acres"] as! String
+        let thumbnail = fieldListDictionary["thumbnail"] as! String
+
         
         cell.nameLabel.text = name
         cell.acresLabel.text = acres
         cell.thumbView.image = UIImage(named: thumbnail)
+        
         return cell
     }
     
 
-    let regionRadius: CLLocationDistance = 1000
+    let regionRadius: CLLocationDistance = 150000
     func centerMapOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
             regionRadius * 2.0, regionRadius * 2.0)
